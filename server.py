@@ -12,9 +12,8 @@ import numpy as np
 import pandas as pd
 import uvicorn
 from fastapi import FastAPI, Query
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 
 # ─── Configuration ────────────────────────────────────────────────────────────
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -96,7 +95,6 @@ def load_data():
         ROW_TEXT_CACHE = pd.Series([""] * len(df), index=df.index)
         
     print(f"[startup] Search index ready ({len(ROW_TEXT_CACHE):,} rows).", flush=True)
-    # ------------------------------------------
 
     print("[startup] Building filter caches ...", flush=True)
     s_counts = df["SERIALNUMBER"].value_counts().sort_index()
@@ -173,11 +171,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Securely serve static files (CSS, JS, Images) from the /static folder
-static_path = os.path.join(BASE_DIR, "static")
-if os.path.exists(static_path):
-    app.mount("/static", StaticFiles(directory=static_path), name="static")
-
 # ─── Endpoints ────────────────────────────────────────────────────────────────
 @app.get("/", response_class=HTMLResponse)
 def serve_html():
@@ -185,6 +178,19 @@ def serve_html():
         return HTMLResponse("<h2>Error: Web layout index.html asset not found.</h2>", status_code=404)
     with open(HTML_FILE, "r", encoding="utf-8") as fh:
         return fh.read()
+
+# Dedicated flat asset routers (No subfolders required)
+@app.get("/style.css")
+def get_css():
+    return FileResponse(os.path.join(BASE_DIR, "style.css"))
+
+@app.get("/script.js")
+def get_js():
+    return FileResponse(os.path.join(BASE_DIR, "script.js"))
+
+@app.get("/logo.jpg")
+def get_logo():
+    return FileResponse(os.path.join(BASE_DIR, "logo.jpg"))
 
 @app.get("/api/stats")
 def api_stats():
