@@ -6,7 +6,7 @@
 <title>Indriya Jewels — Product Catalogue</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<link rel="stylesheet" href="/static/style.css"/>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
@@ -14,7 +14,7 @@
   <div class="header-top">
     <a href="https://www.facebook.com/p/Indriya-Jewels-61560479585835/" target="_blank" rel="noopener" class="brand-block">
       <div class="logo-ring">
-        <img src="/static/logo.jpg" alt="Indriya Jewels" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
+        <img src="logo.jpg" alt="Indriya Jewels" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
         <div class="logo-fallback" style="display: none;">IJ</div>
       </div>
       <div class="brand-text">
@@ -71,6 +71,7 @@
       <span class="sidebar-title">Filters</span>
     </div>
 
+    <!-- ── CATEGORY ── -->
     <div class="filter-block">
       <div class="filter-label">Category
         <button class="filter-clear-btn" onclick="clearDropdown('category')">Clear</button>
@@ -81,6 +82,7 @@
 
     <div class="sidebar-divider"></div>
 
+    <!-- ── SUBCATEGORY ── -->
     <div class="filter-block">
       <div class="filter-label">Subcategory
         <button class="filter-clear-btn" onclick="clearDropdown('subcategory')">Clear</button>
@@ -95,6 +97,7 @@
 
     <div class="sidebar-divider"></div>
 
+    <!-- ── PRODUCT GROUP ── -->
     <div class="filter-block">
       <div class="filter-label">Product Group
         <button class="filter-clear-btn" onclick="clearDropdown('product_group')">Clear</button>
@@ -105,6 +108,7 @@
 
     <div class="sidebar-divider"></div>
 
+    <!-- ── SUB-PRODUCT GROUP ── -->
     <div class="filter-block">
       <div class="filter-label">Sub-Product Group
         <button class="filter-clear-btn" onclick="clearDropdown('sub_product_group')">Clear</button>
@@ -115,6 +119,7 @@
 
     <div class="sidebar-divider"></div>
 
+    <!-- ── SKU STATUS ── -->
     <div class="filter-block">
       <div class="filter-label">SKU Status
         <button class="filter-clear-btn" onclick="clearDropdown('sku_status')">Clear</button>
@@ -125,6 +130,7 @@
 
     <div class="sidebar-divider"></div>
 
+    <!-- ── VENDOR ── -->
     <div class="filter-block">
       <div class="filter-label">Vendor Account
         <button class="filter-clear-btn" onclick="clearDropdown('vendor')">Clear</button>
@@ -139,6 +145,7 @@
 
     <div class="sidebar-divider"></div>
 
+    <!-- ── WAREHOUSE ── -->
     <div class="filter-block">
       <div class="filter-label">Warehouse
         <button class="filter-clear-btn" onclick="clearFilter('warehouse')">Clear</button>
@@ -154,6 +161,7 @@
 
     <div class="sidebar-divider"></div>
 
+    <!-- ── SERIAL NUMBER ── -->
     <div class="filter-block">
       <div class="filter-label">Serial Number
         <button class="filter-clear-btn" onclick="clearFilter('serial')">Clear</button>
@@ -169,6 +177,7 @@
 
     <div class="sidebar-divider"></div>
 
+    <!-- ── HUID ── -->
     <div class="filter-block">
       <div class="filter-label">HUID
         <button class="filter-clear-btn" onclick="clearFilter('huid')">Clear</button>
@@ -295,6 +304,6 @@
   </div>
 </div>
 
-<script src="/static/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
